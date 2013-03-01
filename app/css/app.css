@@ -1,0 +1,35 @@
+/* app css stylesheet */
+html { -webkit-text-size-adjust: none; }
+body{ font-family:arial;}
+p, input, h1, h2, h3, h4, h5, h6, ul, li, dl, dt, dd, form {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  vertical-align: middle;
+  font-size: 16px;
+}
+
+.menu {
+  list-style: none;
+  margin-bottom: 2em;
+  display:-webkit-box;
+}
+.menu a{color:#444;text-decoration:none;
+  font-family:"微软雅黑",Helvetica;
+  font-weight:bold;
+  line-height:30px;
+  display:block;
+}
+
+
+.menu > li {
+  -webkit-box-flex:1;
+  border-bottom:solid 3px #ccc;
+  text-align:center;
+  border-right: solid 1px #c9c9c9;
+}
+.menu > li.current {border-bottom-color:orange;}
+.menu > li.current a {color:orange;}
+
+
+.menu > li:last-child {border-right:none; }

@@ -8,3 +8,5 @@ build.xml
 .idea/*
 .svn
 .swp
+.DS_Store
+*.log

@@ -1,0 +1,16 @@
+<div ng-include src="'partials/top_nav.html'"></div>
+<div ng-include src="'partials/_huodong_nav.html'"></div>
+<ul class="hd_list no_mar p4" id="exchanged_log">
+  <li class="no_list p8" ng-repeat="item in histories">
+    <div>
+      <b>{{item.game_name}}</b>
+    </div>
+    <div>
+      <b>{{item.gift_bag}}</b>
+    </div>
+    <div>
+      {{item.created_at}}
+    </div>
+  </li>
+</ul>
+

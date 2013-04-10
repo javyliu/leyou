@@ -1,16 +1,98 @@
 html { -webkit-text-size-adjust: none; }
-.top_nav{background:#ccc;}
+.l_divider{
+height: 1px;
+margin: 8px 1px;
+overflow: hidden;
+background-color: #e5e5e5;
+border-bottom: 1px solid #ffffff;
+}
+.l4{line-height:1px;height:4px;font-size:0;}
+.l8{line-height:1px;height:8px;font-size:0;}
+.m4{margin:4px;}
+.p4{padding:4px;}
+.ptm8{padding-top:8px;padding-bottom:8px;}
+.mlr4{margin-left:4px;margin-right:4px;}
+.m8{margin:8px;}
+.p8{padding:8px;}
+.no_mar{margin:0;}
+.no_pad{padding:0;}
+.no_list{list-style:none;}
+.pt4{padding-top:4px;}
+.pt8{padding-top:8px;}
+.pm8{padding-bottom:8px;}
+.bg_red{background-color:#FF3863}
+.bg_green{background-color:#7BAA08}
+.bg_blue{background-color:#399EFF}
+.bg_orange{background-color:#EFA210}
+.dbox{
+  display: -moz-box; display: -webkit-box; display: box;
+}
+.dbox li{
+  display:-moz-box-flex: 1; -webkit-box-flex: 1; box-flex: 1;
+}
+.ib li{display:inline-block;}
+
+.red{color:#FF3863}
+.green{color:#7BAA08}
+.blue{color:#399EFF}
+.orange{color:#EFA210}
+.white{color:white;}
+
+.top_nav{background:#ccc;
+  padding:4px;
+  font-weight:bold;
+}
+.top_nav img{padding-right:10px;}
 .menu {
   list-style: none;
   margin:0;
 }
 .menu a{
-  color:#444;text-decoration:none;
-  font-family:"微软雅黑",Helvetica;
-  font-weight:bold;
-  line-height:30px;
   display:block;
   text-align:center;
+  margin-right:8px;
 }
+.menu li:last-child a{margin-right:0;}
+ul.row-fluid{margin:0;}
+#zhanhu div{ display:inline-block; text-align:center;width:50%; }
+#zhanhu a{ display:block;color:555px;font-weight:bold; }
+#zhanhu a:hover{ text-decoration:none; }
+#hd_nav{
+  display: -moz-box; display: -webkit-box; display: box;
+}
+#hd_nav li{
+  display:-moz-box-flex: 1; -webkit-box-flex: 1; box-flex: 1;
+  margin-top:8px;
+}
+#hd_nav li a{display:block;text-align:center;padding:20px 0;margin:0 5px;font-weight:bold;font-size:120%;color:white;
+  text-decoration:none;
 
-
+}
+.hd_list li{
+  display: -moz-box; display: -webkit-box; display: box;
+  background-color: #e5e5e5;
+  border-bottom: 1px solid #ffffff;
+}
+.hd_list li div{
+  display:-moz-box-flex: 1; -webkit-box-flex: 1; box-flex: 1;
+}
+.hd_list li div:nth-child(2){
+  display:-moz-box-flex: 3; -webkit-box-flex: 3; box-flex: 3;
+}
+.hd_list p,.hd_list h4{ margin:2px 0; }
+.hd_list h4{ color:#399EFF; }
+.hd_list img{ width:60px; }
+#exchanged_log li div:nth-child(2){
+  display:-moz-box-flex: 1; -webkit-box-flex: 1; box-flex: 1;
+}
+.forum li a{display:block;padding:4px;text-align:center;color:#555;}
+.forum li img{width:70px;border-radius:5px;}
+.forum li p{padding-top:4px;margin:0;}
+.list li a{
+  display: block;
+  margin: 3px 0;
+  line-height:30px;
+  padding-left: 10px;
+  background: url(../img/arrow_right.png) no-repeat 95% center;
+  border-bottom: solid 1px #eee;
+}

@@ -1,1 +1,12 @@
 <div ng-include src="'partials/top_nav.html'"></div>
+<div ng-include src="'partials/_menu.html'"></div>
+<div id="zhanhu">
+  <div  class="pt8 pm8" ng-repeat="icon in icons">
+    <a ng-href="{{icon.link}}"><img ng-src="{{icon.img_src}}"  width=80/>
+      <p>{{icon.name}}</p>
+    </a>
+  </div>
+
+
+</div>
+

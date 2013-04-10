@@ -1,1 +1,18 @@
 <div ng-include src="'partials/top_nav.html'"></div>
+<div ng-include src="'partials/_huodong_nav.html'"></div>
+<ul class="hd_list no_mar p4">
+  <li class="p4" ng-repeat="item in libaos">
+    <div>
+      <img ng-src="http://m.pipgame.com/game_logos/iphone{{item.game_id}}.png">
+    </div>
+    <div>
+      <h4>{{item.game_name}}</h4>
+      <p>{{item.name}}</p>
+      <p>礼包内容：{{item.desc}}</p>
+    </div>
+    <div>
+      <button class="btn btn-success">立即领取</button>
+    </div>
+  </li>
+</ul>
+

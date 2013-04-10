@@ -1,1 +1,19 @@
 <div ng-include src="'partials/top_nav.html'"></div>
+<div ng-include ="'partials/_menu.html'"></div>
+<div class="forum">
+  <h4 class="bg_blue white p4 ptm8">明珠论坛</h4>
+  <ul class="no_mar ib no_list">
+    <li ng-repeat="item in games">
+    <a ng-href="#/f/{{item.short_name_en}}">
+      <img ng-src="http://m.pipgame.cn/game_logos/iphone{{item.id}}.png" />
+      <p><b>{{item.name_cn}}</b></p>
+    </a>
+    </li>
+  </ul>
+</div>
+<h4 class="bg_blue white p4 ptm8">游戏公告</h4>
+<ul class="no_mar list">
+  <li ng-repeat="item in bulletins">
+  <a ng-href="http://192.168.0.252:7200{{item.url}}">{{item.title}}</a>
+  </li>
+</ul>

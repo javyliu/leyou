@@ -1,0 +1,16 @@
+<div ng-include src="'partials/top_nav.html'"></div>
+<div ng-include src="'partials/_huodong_nav.html'"></div>
+<ul class="hd_list no_mar p4">
+  <li class="no_list p8" ng-repeat="item in huodongs">
+    <div>
+      <b>{{item.name}}+{{item.points}}</b>
+    </div>
+    <div>
+      <b>0 / {{item.account}}</b>
+    </div>
+    <div>
+      <a ng-href="{{item.jump_url}}" class="btn btn-primary">跳 转</a>
+    </div>
+  </li>
+</ul>
+

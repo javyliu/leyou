@@ -47,4 +47,14 @@ var zhanhu = ["$scope","common", function($scope,common) {
 	$scope.menu = common.menu;
 	$scope.icons = common.zhanhu_icons;
 }];
+var download_file = ["$scope","common", function($scope,common) {
+	$scope.title = "上传文件";
+	$scope.menu = common.menu;
+	$scope.icons = common.zhanhu_icons;
+}];
 
+var upload_file = ["$scope","common", function($scope,common) {
+	$scope.title = "上传文件";
+	$scope.menu = common.menu;
+	$scope.icons = common.zhanhu_icons;
+}];

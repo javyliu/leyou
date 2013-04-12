@@ -1,5 +1,27 @@
 <div ng-include ="'partials/top_nav.html'"></div>
 <div ng-include ="'partials/_menu.html'"></div>
 <div class="pt8">
+
   <input type="file" name="updata">
+
+  <button class="btn" ng-click="capturePhoto()">Capture Photo</button>
+  <br>
+
+  devise uid: {{device_id}}<br>
+  devise uid: {{cordova}}<br>
+  devise uid: {{name}}<br>
+  devise uid: {{platform}}<br>
+  devise uid: {{version}}<br>
+  devise uid: {{type}}<br>
+
+  <div ng-bind="data.completed"></div>
+  <button class="btn" onclick="navigator.notification.alert('asdkfjadkf',function(){alert('ok')})">alert</button>
+  <button class="btn" onclick="navigator.notification.confirm('asdkfjadkf',function(msg){alert(msg)})">confirm</button>
+  <button class="btn" onclick="navigator.notification.beep(2)">beep</button>
+  <button class="btn" onclick="navigator.notification.vibrate(2000)">vibrate</button>
+  <button class="btn" ng-click="echo('hello')">echo</button>
+  <button class="btn" ng-click="download('http://3g.pipgame.com/c?gn=sg&ft=Sanguo_AndroidAuto_New_CGWPIP99.apk&leyou')">download</button><br>
+  <button class="btn" ng-click="download1('http://3g.pipgame.com/c?gn=sg&ft=Sanguo_AndroidAuto_New_CGWPIP99.apk&leyou')">filetransfer download</button>
 </div>
+
+

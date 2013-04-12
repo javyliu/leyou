@@ -57,4 +57,85 @@ var upload_file = ["$scope","common", function($scope,common) {
 	$scope.title = "上传文件";
 	$scope.menu = common.menu;
 	$scope.icons = common.zhanhu_icons;
+  document.addEventListener("deviceready",onDeviceReady,false);
+  var pictureSource,destinationType;
+  function onDeviceReady() {
+    pictureSource=navigator.camera.PictureSourceType;
+    destinationType=navigator.camera.DestinationType;
+    $scope.device_id = device.uuid
+    $scope.cordova = device.cordova
+    $scope.name = device.name
+    $scope.platform = device.platform
+    $scope.version = device.version
+    $scope.type =  navigator.network.connection.type
+  }
+
+  function onPhotoDataSuccess(){
+    alert("ok");
+  }
+  function onFail(){
+    alert("false");
+  }
+
+  $scope.echo = function(str) {
+    cordova.exec(function(res){alert(res)}, function(err) {
+      alert(err);
+    }, "Echo", "lksdfj", [str]);
+  }
+  $scope.download = function(url) {
+    cordova.exec(function(res){
+      $scope.complete = res
+    }, function(err) {
+      alert(err);
+    }, "Downloader", "download", [url, {overwrite: true,fileName:"Sanguo_AndroidAuto_New_CGWPIP99.apk"}]);
+  }
+
+  $scope.data={total:0,completed:0};
+  $scope.total=0;
+  var i=0
+  var loaded = function(data){
+    $scope.data.completed = data;
+    $scope.$apply();
+  }
+//  setInterval(function(){
+//    loaded(i++);
+//  },1000)
+  $scope.download1 = function(url) {
+    var fileTransfer = new FileTransfer();
+    var uri = encodeURI(url);
+    var filePath = "/mnt/sdcard/download/test.apk";
+    fileTransfer.onprogress = function(progressEvent) {
+      if (progressEvent.lengthComputable) {
+        //$scope.complete = progressEvent.loaded;
+        //$scope.total = progressEvent.total;
+        loaded(progressEvent.loaded/progressEvent.total);
+        //loadingStatus.setPercentage(progressEvent.loaded / progressEvent.total);
+      } else {
+        loaded( i++ );
+        //loadingStatus.increment();
+      }
+    };
+
+    fileTransfer.download(
+        uri,
+        filePath,
+        function(entry) {
+          alert("download complete: " + entry.fullPath);
+          alert($scope.complete);
+        },
+        function(error) {
+          alert("download error source " + error.source);
+          alert("download error target " + error.target);
+          alert("upload error code" + error.code);
+        },
+        false, { }
+        );
+  }
+
+  $scope.fail = onFail;
+
+
+  $scope.capturePhoto = function(){
+    navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50, destinationType: destinationType.DATA_URL });
+  }
 }];

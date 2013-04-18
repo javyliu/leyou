@@ -5,7 +5,7 @@
   <ul class="no_mar ib no_list">
     <li ng-repeat="item in games">
     <a ng-href="#/f/{{item.short_name_en}}">
-      <img ng-src="http://m.pipgame.cn/game_logos/iphone{{item.id}}.png" />
+      <img ng-src="{{icon_url + 'iphone' +item.id}}.png" />
       <p><b>{{item.name_cn}}</b></p>
     </a>
     </li>

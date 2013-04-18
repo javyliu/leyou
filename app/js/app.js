@@ -28,6 +28,10 @@ config(['$routeProvider', function($routeProvider) {
 		templateUrl: 'partials/upload.html',
 		controller: upload_file
 	}).
+	when('/games/:id', {
+		templateUrl: 'partials/game.html',
+		controller: games
+	}).
 	otherwise({
 		redirectTo: '/jingping'
 	});
@@ -60,14 +64,15 @@ angular.module('leyou.service', []).value('common', {
 	}],
 	logo: "img/logo.png",
   interface_url:"http://192.168.0.252:7200/",
+  icon_root:"http://m.pipgame.cn/game_logos/",
   games:[
-    {id:14 , short_name_en:"sy", name_cn:"龙斗士"  ,src:"img/img_jp_01.png",alt:"",package_name:"com.pip.mzcity"},
-    {id:6  , short_name_en:"sg", name_cn:"明珠三国",src:"img/img_jp_02.png",alt:"",package_name:"com.pip.CCAAGB05"},
-    {id:13 , short_name_en:"ss", name_cn:"杀神"    ,src:"img/img_jp_03.png",alt:"",package_name:"com.pip.ss"},
-    {id:10 , short_name_en:"xy", name_cn:"明珠轩辕",src:"img/img_jp_04.png",alt:"",package_name:"shaft.android"},
-    {id:8  , short_name_en:"hx", name_cn:"明珠幻想",src:"img/img_jp_05.png",alt:"",package_name:"com.pip.itimes"},
-    {id:9  , short_name_en:"xyj",name_cn:"明珠西游",src:"img/img_jp_06.png",alt:"",package_name:"com.pip.android.xiyou"},
-    {id:2  , short_name_en:"wl", name_cn:"武林"    ,src:"img/img_jp_07.png",alt:"",package_name:"com.pip.wulin2"}
+    {id:"14" , short_name_en:"sy", name_cn:"龙斗士"  ,src:"img/img_jp_01.png",alt:"",version:"1.0",updated_at:"2013-04-01",style:"策略战争",size:"7.8M",screen:"480x800",description:"是一款多人在线的网络策略战争类游戏。 游戏将玩家带回西方中世纪一个充满魔幻，梦想的战乱年代。玩家将要扮演一位拥有理想与信念的君主，占据一座城堡要塞募集来自世界大陆四方的英雄强者，在战火纷乱的年代中保护自已的子民，并建立稳定而强大的政权，最终统一大陆，成为一代霸者。",package_name:"com.pip.mzcity",cycles:[ {id:"1",src:"http://m.pipgame.com/cycle_imgs/20130402100729514.jpg" }, {id:"1",src:"http://m.pipgame.com/cycle_imgs/201304021006584268.jpg"}, {id:"1",src:"http://m.pipgame.com/cycle_imgs/201304021008123788.jpg"}]},
+    {id:"6"  , short_name_en:"sg", name_cn:"明珠三国",src:"img/img_jp_02.png",alt:"",version:"1.0",updated_at:"2013-04-01",style:"策略战争",size:"7.8M",screen:"480x800",package_name:"com.pip.CCAAGB05"},
+    {id:"13" , short_name_en:"ss", name_cn:"杀神"    ,src:"img/img_jp_03.png",alt:"",version:"1.0",updated_at:"2013-04-01",style:"策略战争",size:"7.8M",screen:"480x800",package_name:"com.pip.ss"},
+    {id:"10" , short_name_en:"xy", name_cn:"明珠轩辕",src:"img/img_jp_04.png",alt:"",version:"1.0",updated_at:"2013-04-01",style:"策略战争",size:"7.8M",screen:"480x800",package_name:"shaft.android"},
+    {id:"8"  , short_name_en:"hx", name_cn:"明珠幻想",src:"img/img_jp_05.png",alt:"",version:"1.0",updated_at:"2013-04-01",style:"策略战争",size:"7.8M",screen:"480x800",package_name:"com.pip.itimes"},
+    {id:"9"  , short_name_en:"xyj",name_cn:"明珠西游",src:"img/img_jp_06.png",alt:"",version:"1.0",updated_at:"2013-04-01",style:"策略战争",size:"7.8M",screen:"480x800",package_name:"com.pip.android.xiyou"},
+    {id:"2"  , short_name_en:"wl", name_cn:"武林"    ,src:"img/img_jp_07.png",alt:"",version:"1.0",updated_at:"2013-04-01",style:"策略战争",size:"7.8M",screen:"480x800",package_name:"com.pip.wulin2"}
     ],
     zhanhu_icons:[
     {name: "游戏充值",img_src:"img/img_zh_01.png",link:"#"},

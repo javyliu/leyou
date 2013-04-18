@@ -8,7 +8,7 @@ var jingping = ["$scope", "common", function($scope, common) {
   $scope.left_games = [];
   $scope.right_games = [];
 
-  for(var i=1;i<games.length;i++){
+  for(var i=1,len=games.length;i<len;i++){
     if(i%2 == 0){
       $scope.left_games.push(games[i]);
     }else{
@@ -38,6 +38,7 @@ var luntan = ["$scope","common","$http", function($scope,common,$http) {
 	$scope.title = "论坛";
 	$scope.menu = common.menu;
 	$scope.games = common.games;
+  $scope.icon_url = common.icon_root;
   $http.jsonp(common.interface_url+"leyou/news/bulletins.mob?callback=JSON_CALLBACK&cat_id=1").success(function(res,status){
     $scope.bulletins = res;
   });
@@ -47,14 +48,35 @@ var zhanhu = ["$scope","common", function($scope,common) {
 	$scope.menu = common.menu;
 	$scope.icons = common.zhanhu_icons;
 }];
+//游戏详情控制器
+var games = ["$scope","common","$routeParams","$filter", function($scope,common,params,$filter) {
+	$scope.title = "游戏详情";
+  game = $filter('filter')(common.games,{id:params.id},true);
+  $scope.icon_url = common.icon_root+"iphone"+params.id+".png";
+  $scope.game = game[0];
+	$scope.menu = common.menu;
+	$scope.icons = common.zhanhu_icons;
+}];
 var download_file = ["$scope","common", function($scope,common) {
-	$scope.title = "上传文件";
+	$scope.title = "下载文件";
 	$scope.menu = common.menu;
 	$scope.icons = common.zhanhu_icons;
 }];
 
-var upload_file = ["$scope","common", function($scope,common) {
+var upload_file = ["$scope","common","$timeout", function($scope,common,$timeout) {
 	$scope.title = "上传文件";
+
+  //test timeout data-binding"
+  var stop;
+  var add = function(){
+    stop=$timeout(function(){
+      $scope.title += "0";
+      console.log($scope.title);
+      add();
+
+    },1000);
+  }
+  //add();
 	$scope.menu = common.menu;
 	$scope.icons = common.zhanhu_icons;
   document.addEventListener("deviceready",onDeviceReady,false);

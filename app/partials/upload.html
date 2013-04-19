@@ -21,9 +21,12 @@
   <button class="btn" onclick="navigator.notification.confirm('asdkfjadkf',function(msg){alert(msg)})">confirm</button>
   <button class="btn" onclick="navigator.notification.beep(2)">beep</button>
   <button class="btn" onclick="navigator.notification.vibrate(2000)">vibrate</button>
-  <button class="btn" ng-click="echo('hello')">echo</button>
+  <button class="btn" ng-click="echo('{{game.package_name}}')">echo</button>
   <button class="btn" ng-click="download('http://3g.pipgame.com/c?gn=sg&ft=Sanguo_AndroidAuto_New_CGWPIP99.apk&leyou')">download</button><br>
   <button class="btn" ng-click="download1('http://3g.pipgame.com/c?gn=sg&ft=Sanguo_AndroidAuto_New_CGWPIP99.apk&leyou')">filetransfer download</button>
+  <button class="btn" ng-click="detail('com.pip.android.xiyou')">open game</button>
+  <a id="test2" class="btn" onclick="PipGameBoxNew.v_openDetail('xyj','com.pip.android.xiyou','9');">西游</a>
+
 </div>
 
 

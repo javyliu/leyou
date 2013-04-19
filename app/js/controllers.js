@@ -3,10 +3,14 @@ var jingping = ["$scope", "common", function($scope, common) {
 	$scope.title = "乐游互动中心";
 	$scope.menu = common.menu;
   var games = common.games;
+  //$scope.detail = function(game_name,package_name,game_id){
+    //PipGameBoxNew.v_openDetail(game_name,package_name,game_id);
+  //}
  if(games && games.length > 0){
   $scope.top_game = games[0];
   $scope.left_games = [];
   $scope.right_games = [];
+
 
   for(var i=1,len=games.length;i<len;i++){
     if(i%2 == 0){
@@ -49,11 +53,20 @@ var zhanhu = ["$scope","common", function($scope,common) {
 	$scope.icons = common.zhanhu_icons;
 }];
 //游戏详情控制器
-var games = ["$scope","common","$routeParams","$filter", function($scope,common,params,$filter) {
+var games = ["$scope","common","$routeParams","$filter","plugins", function($scope,common,params,$filter,plugins) {
 	$scope.title = "游戏详情";
-  game = $filter('filter')(common.games,{id:params.id},true);
+  game = $filter('filter')(common.games,{id:params.id},true)[0];
+  document.addEventListener("deviceready",on_device_ready,false);
+  console.log(game.package_name);
+  function on_device_ready(){
+      plugins.detect_package(function(res){
+        if(res[game.package_name].installed == "1"){
+          $scope.install_version = "已安装版本"+res[game.package_name].version;
+        }
+      },null,[game.package_name]);
+    }
   $scope.icon_url = common.icon_root+"iphone"+params.id+".png";
-  $scope.game = game[0];
+  $scope.game = game;
 	$scope.menu = common.menu;
 	$scope.icons = common.zhanhu_icons;
 }];
@@ -65,6 +78,11 @@ var download_file = ["$scope","common", function($scope,common) {
 
 var upload_file = ["$scope","common","$timeout", function($scope,common,$timeout) {
 	$scope.title = "上传文件";
+  $scope.detail = function(package_name){
+    alert("test");
+    PipGameBoxNew.v_openGame(package_name);
+    return false;
+  }
 
   //test timeout data-binding"
   var stop;
@@ -98,11 +116,12 @@ var upload_file = ["$scope","common","$timeout", function($scope,common,$timeout
   function onFail(){
     alert("false");
   }
+  $scope.game = common.games[0];
 
   $scope.echo = function(str) {
-    cordova.exec(function(res){alert(res)}, function(err) {
+    cordova.exec(function(res){alert(res.package_name)}, function(err) {
       alert(err);
-    }, "Echo", "lksdfj", [str]);
+    }, "Tools", "detect_package", [str]);
   }
   $scope.download = function(url) {
     cordova.exec(function(res){

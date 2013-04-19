@@ -104,5 +104,17 @@ angular.module('leyou.service', []).value('common', {
 		}
 	};
 
-}]);
+}]).factory("plugins",['$window',function($window){
+    var actions = {};
+    actions.detect_package = function(success,fail,package_name){
+      var fail = fail || function(res){alert(res)}
+      console.log(package_name);
+      cordova.exec(success, fail, "Tools", "detect_package", package_name);
+    }
+    return actions;
+
+  }
+
+
+]);
 

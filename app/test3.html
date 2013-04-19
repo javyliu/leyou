@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="zh-cn" ng-app="PropertyEvaluation">
+<head>
+    <meta charset="UTF-8">
+    <title>PropertyEvaluation</title>
+    <style type="text/css">
+        .ng-cloak {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div ng-controller="MyCtrl">
+    Name: <input ng-model="name" type="text"/>
+    <button ng-click="greet()">Greet</button>
+    <button ng-click="$window.alert('alskdfj')">Greet</button>
+</div>
+    <script src="lib/angular/angular.min.js"></script>
+    <script type="text/javascript">
+    'use strict';
+    var $scope={};
+     $scope.name = "adsfasdf";
+    var app = angular.module("PropertyEvaluation", []);
+    app.controller("MyCtrl", function ($scope,$window) {
+        $scope.name = "Kitty";
+        $scope.greet = function(user) {
+            $window.alert("Hello "+ user + $scope.name);
+        };
+    });
+</script>
+</body>
+</html>

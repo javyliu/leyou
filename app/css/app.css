@@ -13,6 +13,7 @@ a:hover{}
   z-index: 1030;
   margin-bottom: 0;
 }
+.pa{position:absolute;top:0;left:0;}
 .l_divider{
 height: 1px;
 margin: 8px 1px;
@@ -113,3 +114,4 @@ ul.row-fluid{margin:0;}
   border-bottom: solid 1px #eee;
 }
 .cycle span img{height:160px;}
+.download_bar{position:fixed;bottom:0;left:0;width:100%;background:#ccc;}

@@ -103,7 +103,7 @@ angular.module('leyou.service', []).value('common', {
 		style: "策略战争",
 		size: "7.8M",
 		screen: "480x800",
-		package_name: "com.pip.CCAAGB05",
+		package_name: "com.pip.andsanguonew",
 		description: "是一款多人在线的网络策略战争类游戏。 游戏将玩家带回西方中世纪一个充满魔幻，梦想的战乱年代。玩家将要扮演一位拥有理想与信念的君主，占据一座城堡要塞募集来自世界大陆四方的英雄强者，在战火纷乱的年代中保护自已的子民，并建立稳定而强大的政权，最终统一大陆，成为一代霸者。",
     download_url: "http://3g.pipgame.com/c?gn=sg&ft=Sanguo_AndroidAuto_New_Large_CGWPIP99.apk",
 		cycles: [{
@@ -379,6 +379,18 @@ angular.module('leyou.service', []).value('common', {
 		cordova.exec(success, fail, "Tools", "open_game", [package_name]);
 
   }
+  actions.download = function(app,onprogress,success,fail){
+    var game = app;
+	  var fileTransfer = new FileTransfer();
+		var uri = encodeURI(game.download_url);
+		var filePath = "/mnt/sdcard/download/" + game.package_name + ".apk";
+    //防止用户重启点击下载
+    //game.not_first_download = true;
+		//game.start_download = true;
+		fileTransfer.onprogress = onprogress;
+
+		fileTransfer.download(uri, filePath, success,fail,false, {});
+	}
   //actions.download = function(url,package_name,$scope){
   //  var fileTransfer = new FileTransfer();
   //  var uri = encodeURI(url);

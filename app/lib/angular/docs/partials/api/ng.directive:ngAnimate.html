@@ -4,8 +4,8 @@
 </h1>
 <div><a href="http://github.com/angular/angular.js/edit/master/src/ng/animator.js" class="improve-docs btn btn-primary">Improve this doc</a><h2 id="Description">Description</h2>
 <div class="description"><p>The <code>ngAnimate</code> directive works as an attribute that is attached alongside pre-existing directives.
-It effects how the directive will perform DOM manipulation. This allows for complex animations to take place while
-without burduning the directive which uses the animation with animation details. The built dn directives
+It effects how the directive will perform DOM manipulation. This allows for complex animations to take place
+without burdening the directive which uses the animation with animation details. The built in directives
 <code>ngRepeat</code>, <code>ngInclude</code>, <code>ngSwitch</code>, <code>ngShow</code>, <code>ngHide</code> and <code>ngView</code> already accept <code>ngAnimate</code> directive.
 Custom directives can take advantage of animation through <a href="api/ng.$animator"><code>$animator service</code></a>.</p>
 
@@ -38,10 +38,12 @@ Custom directives can take advantage of animation through <a href="api/ng.$anima
 
 <p>The <code>event1</code> and <code>event2</code> attributes refer to the animation events specific to the directive that has been assigned.</p>
 
+<p>Keep in mind that if an animation is running, no child element of such animation can also be animated.</p>
+
 <h4>CSS-defined Animations</h4>
 
 <p>By default, ngAnimate attaches two CSS3 classes per animation event to the DOM element to achieve the animation.
-This is up to you, the developer, to ensure that the animations take place using cross-browser CSS3 transitions.
+It is up to you, the developer, to ensure that the animations take place using cross-browser CSS3 transitions.
 All that is required is the following CSS code:</p>
 
 <pre class="prettyprint linenums">

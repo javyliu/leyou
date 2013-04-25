@@ -20,7 +20,7 @@ and load modules.</p>
 <h3>Injection Function Annotation</h3>
 
 <p>JavaScript does not have annotations, and annotations are needed for dependency injection. The
-following ways are all valid way of annotating function with injection arguments and are equivalent.</p>
+following are all valid ways of annotating function with injection arguments and are equivalent.</p>
 
 <pre class="prettyprint linenums">
   // inferred (only works if code not minified/obfuscated)
@@ -104,7 +104,7 @@ minification is a better choice:</p>
     // ...
   };
   tmpFn.$inject = ['$compile', '$rootScope'];
-  injector.invoke(tempFn);
+  injector.invoke(tmpFn);
 
   // To better support inline function the inline annotation is supported
   injector.invoke(['$compile', '$rootScope', function(obfCompile, obfRootScope) {

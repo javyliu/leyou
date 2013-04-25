@@ -90,6 +90,11 @@ is available. The callbacks are called with a single argument the result or reje
 
 <p>This method <em>returns a new promise</em> which is resolved or rejected via the return value of the
 <code>successCallback</code> or <code>errorCallback</code>.</p></li>
+<li><p><code>always(callback)</code> – allows you to observe either the fulfillment or rejection of a promise,
+but to do so without modifying the final value. This is useful to release resources or do some
+clean-up that needs to be done whether the promise was rejected or resolved. See the <a href="https://github.com/kriskowal/q/wiki/API-Reference#promisefinallycallback">full
+specification</a> for
+more information.</p></li>
 </ul>
 
 <h3>Chaining promises</h3>
@@ -217,10 +222,7 @@ the promise comes from a source that can't be trusted.</p><h4 id="Parameters">Pa
 </ul>
 <h4 id="Returns">Returns</h4>
 <div class="returns"><code ng:non-bindable="">{Promise}</code>
-– <p>Returns a single promise that will be resolved with an array of values,
-each value corresponding to the promise at the same index in the <code>promises</code> array. If any of
-the promises is resolved with a rejection, this resulting promise will be resolved with the
-same rejection.</p></div>
+– <p>Returns a promise of the passed value or promise</p></div>
 </div>
 </li>
 </ul>

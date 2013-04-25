@@ -1,13 +1,13 @@
 <div ng-include ="'partials/top_nav.html'"></div>
 <div ng-include ="'partials/_menu.html'"></div>
 <div class="pt8">
-  <a ng-href="#/games/{{top_game.id}}"><img ng-src="{{top_game.src}}"></a>
+  <a ng-tap ng-href="#/games/{{top_game.id}}"><img ng-src="{{top_game.src}}"></a>
 </div>
 <div class="row-fluid">
   <ul class="span6 no_mar pt8 pm8 no_list">
-    <li ng-repeat="item in left_games" class="pm8"><a ng-href="#/games/{{item.id}}"><img ng-src="{{item.src}}" alt="{{item.alt}}" /></a></li>
+    <li ng-repeat="item in left_games" class="pm8"><a ng-tap ng-href="#/games/{{item.id}}"><img ng-src="{{item.src}}" alt="{{item.alt}}" /></a></li>
   </ul>
   <ul class="span6 no-mar pt8 pm8 no_list">
-    <li ng-repeat="item in right_games" class="pm8"><a ng-href="#/games/{{item.id}}"><img ng-src="{{item.src}}" alt="{{item.alt}}" /></a></li>
+    <li ng-repeat="item in right_games" class="pm8"><a ng-tap ng-href="#/games/{{item.id}}"><img ng-src="{{item.src}}" alt="{{item.alt}}" /></a></li>
   </ul>
 </div>

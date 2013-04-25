@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# 2013-04-08T07:44:08.644Z
+# 2013-04-25T06:08:24.289Z
 
 # cache all of these
 CACHE:
@@ -77,6 +77,7 @@ partials/api/ng.directive:ngOpen.html
 partials/api/ng.directive:ngSwitch.html
 partials/api/angular.noop.html
 partials/api/ng.directive:ngMouseenter.html
+partials/api/ngMobile.directive:ngSwipeLeft.html
 partials/api/ng.directive:ngInclude.html
 partials/api/ng.$templateCache.html
 partials/api/ng.directive:ngClassEven.html
@@ -188,10 +189,12 @@ partials/api/ng.directive:ngKeypress.html
 partials/api/ng.directive:ngClick.html
 partials/api/ng.$rootScopeProvider.html
 partials/api/angular.isString.html
+partials/api/ng.directive:ngIf.html
 partials/api/ng.$controllerProvider.html
 partials/api/ngSanitize.html
 partials/api/ng.directive:ngRepeat.html
 partials/api/ng.directive:ngList.html
+partials/api/ngMobile.directive:ngSwipeRight.html
 partials/api/angular.fromJson.html
 partials/api/ng.filter:currency.html
 partials/api/angular.extend.html

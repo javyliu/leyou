@@ -49,6 +49,8 @@ match.</p>
 <li><code>controller</code> – <code>{(string|function()=}</code> – Controller fn that should be associated with newly
 created scope or the name of a <a href="api/angular.Module#controller"><code>registered controller</code></a>
 if passed as a string.</li>
+<li><code>controllerAlias</code> – <code>{sttring=}</code> – A controller alias name. If present the controller will be
+published to scope under the <code>controllerAlias</code> name.</li>
 <li><p><code>template</code> – <code>{string=|function()=}</code> – html template as a string or function that returns
 an html template as a string which should be used by <a href="api/ng.directive:ngView"><code>ngView</code></a> or
 <a href="api/ng.directive:ngInclude"><code>ngInclude</code></a> directives.

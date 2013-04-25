@@ -16,10 +16,10 @@ instance functions into a single template function which is then returned.</p>
 case each call results in a view that is a DOM clone of the original template.</p>
 
 <h4>Source</h4>
-<div source-edit="compile" source-edit-deps="angular.js script.js" source-edit-html="index.html-220" source-edit-css="" source-edit-js="script.js-219" source-edit-unit="" source-edit-scenario="scenario.js-221"></div>
+<div source-edit="compile" source-edit-deps="angular.js script.js" source-edit-html="index.html-221" source-edit-css="" source-edit-js="script.js-220" source-edit-unit="" source-edit-scenario="scenario.js-222"></div>
 <div class="tabbable"><div class="tab-pane" title="index.html">
-<pre class="prettyprint linenums" ng-set-text="index.html-220" ng-html-wrap="compile angular.js script.js"></pre>
-<script type="text/ng-template" id="index.html-220">
+<pre class="prettyprint linenums" ng-set-text="index.html-221" ng-html-wrap="compile angular.js script.js"></pre>
+<script type="text/ng-template" id="index.html-221">
     
     <div ng-controller="Ctrl">
       <input ng-model="name"> <br>
@@ -29,8 +29,8 @@ case each call results in a view that is a DOM clone of the original template.</
    </script>
 </div>
 <div class="tab-pane" title="script.js">
-<pre class="prettyprint linenums" ng-set-text="script.js-219"></pre>
-<script type="text/ng-template" id="script.js-219">
+<pre class="prettyprint linenums" ng-set-text="script.js-220"></pre>
+<script type="text/ng-template" id="script.js-220">
       // declare a new module, and inject the $compileProvider
       angular.module('compile', [], function($compileProvider) {
         // configure new 'compile' directive by passing a directive
@@ -66,8 +66,8 @@ case each call results in a view that is a DOM clone of the original template.</
     </script>
 </div>
 <div class="tab-pane" title="End to end test">
-<pre class="prettyprint linenums" ng-set-text="scenario.js-221"></pre>
-<script type="text/ng-template" id="scenario.js-221">
+<pre class="prettyprint linenums" ng-set-text="scenario.js-222"></pre>
+<script type="text/ng-template" id="scenario.js-222">
      it('should auto compile', function() {
        expect(element('div[compile]').text()).toBe('Hello Angular');
        input('html').enter('{{name}}!');
@@ -76,7 +76,7 @@ case each call results in a view that is a DOM clone of the original template.</
    </script>
 </div>
 </div><h4>Demo</h4>
-<div class="well doc-example-live animator-container" ng-embed-app="compile" ng-set-html="index.html-220" ng-eval-javascript="script.js-219"></div></div>
+<div class="well doc-example-live animator-container" ng-embed-app="compile" ng-set-html="index.html-221" ng-eval-javascript="script.js-220"></div></div>
 <h2 id="Usage">Usage</h2>
 <div class="usage"><pre class="prettyprint linenums">$compile(element, transclude, maxPriority);</pre>
 <h3 id="Parameters">Parameters</h3>

@@ -67,7 +67,7 @@ These are:</p>
 <p>The diagram and the example below describe how Angular interacts with the browser's event loop.</p>
 
 <ol>
-<li>The browser's event-loop waits for an event to arrive. An event is a user interactions, timer event,
+<li>The browser's event-loop waits for an event to arrive. An event is a user interaction, timer event,
  or network event (response from a server).</li>
 <li>The event's callback gets executed. This enters the JavaScript context. The callback can
   modify the DOM structure.</li>
@@ -81,7 +81,7 @@ applied in Angular execution context will benefit from Angular data-binding, exc
 property watching, etc... You can also use $apply() to enter Angular execution context from JavaScript. Keep in
 mind that in most places (controllers, services) $apply has already been called for you by the
 directive which is handling the event. An explicit call to $apply is needed only when
-implementing custom event callbacks, or when working with a third-party library callbacks.</p>
+implementing custom event callbacks, or when working with third-party library callbacks.</p>
 
 <ol>
 <li>Enter Angular execution context by calling <a href="guide/scope">scope</a><code>.</code><a href="api/ng.$rootScope.Scope#$apply"><code>$apply</code></a><code>(stimulusFn)</code>. Where <code>stimulusFn</code> is
@@ -150,8 +150,8 @@ provides the execution context for expressions. The scopes are nested in a hiera
 which closely follow the DOM structure. (See individual directive documentation to see which
 directives cause a creation of new scopes.)</p>
 
-<p>The following example demonstrates how <code>name</code> <a href="guide/expression">expression</a> will evaluate
-into different value depending on which scope it is evaluated in. The example is followed by
+<p>The following example demonstrates how the <code>name</code> <a href="guide/expression">expression</a> will evaluate
+into a different value depending on which scope it is evaluated in. The example is followed by
 a diagram depicting the scope boundaries.</p>
 
 <div class="clear">
@@ -473,7 +473,7 @@ allows the methods and types to ask for their dependencies instead of having to 
 function arguments. When angular calls the function, it will use the <a href="api/AUTO.$injector#invoke"><code>call</code></a> which will automatically fill the function
 arguments.</p>
 
-<p>Examine the <code>ClockCtrl</code> bellow, and notice how it lists the dependencies in the constructor. When the
+<p>Examine the <code>ClockCtrl</code> below, and notice how it lists the dependencies in the constructor. When the
 <a href="api/ng.directive:ngController"><code>ng-controller</code></a> instantiates
 the controller it automatically provides the dependencies. There is no need to create
 dependencies, look for dependencies, or even get a reference to the injector.</p>

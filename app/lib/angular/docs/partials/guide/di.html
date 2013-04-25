@@ -11,7 +11,7 @@ book.</p>
 
 <h3>DI in a nutshell</h3>
 
-<p>There are only three ways how an object or a function can get a hold of its dependencies:</p>
+<p>There are only three ways an object or a function can get a hold of its dependencies:</p>
 
 <ol>
 <li><p>The dependency can be created, typically using the <code>new</code> operator.</p></li>
@@ -19,8 +19,8 @@ book.</p>
 <li><p>The dependency can be passed in to where it is needed.</p></li>
 </ol>
 
-<p>The first two option of creating or looking up dependencies are not optimal, because they hard
-code the dependency, making it difficult, if not impossible, to modify the dependencies.
+<p>The first two options of creating or looking up dependencies are not optimal because they hard
+code the dependency. This make it difficult, if not impossible, to modify the dependencies.
 This is especially problematic in tests, where it is often desirable to provide mock dependencies
 for test isolation.</p>
 
@@ -29,7 +29,7 @@ dependency from the component. The dependency is simply handed to the component.
 
 <pre class="prettyprint linenums">
   function SomeClass(greeter) {
-    this.greeter = greeter
+    this.greeter = greeter;
   }
   
   SomeClass.prototype.doSomething = function(name) {
@@ -37,16 +37,17 @@ dependency from the component. The dependency is simply handed to the component.
   }
 </pre>
 
-<p>In the above example the <code>SomeClass</code> is not concerned with locating the <code>greeter</code> dependency, it
+<p>In the above example <code>SomeClass</code> is not concerned with locating the <code>greeter</code> dependency, it
 is simply handed the <code>greeter</code> at runtime.</p>
 
-<p>This is desirable, but it puts the responsibility of getting hold of the dependency onto the
-code responsible for the construction of <code>SomeClass</code>.</p>
+<p>This is desirable, but it puts the responsibility of getting hold of the dependency on the
+code that constructs <code>SomeClass</code>.</p>
 
 <p>To manage the responsibility of dependency creation, each Angular application has an <a href="api/angular.injector"><code>injector</code></a>. The injector is a service locator that is responsible for
 construction and lookup of dependencies.</p>
 
-<p>Here is an example of using  the injector service. 
+<p>Here is an example of using the injector service:</p>
+
 <pre class="prettyprint linenums">
   // Provide the wiring information in a module
   angular.module('myModule', []).
@@ -94,7 +95,7 @@ dependency lookup responsibility to the injector by declaring the dependencies a
 </pre>
 
 <p>Notice that by having the <code>ng-controller</code> instantiate the class, it can satisfy all of the
-dependencies of the <code>MyController</code> without the controller ever knowing about the injector. This is
+dependencies of <code>MyController</code> without the controller ever knowing about the injector. This is
 the best outcome. The application code simply ask for the dependencies it needs, without having to
 deal with the injector. This setup does not break the Law of Demeter.</p>
 
@@ -150,17 +151,19 @@ information with the function.</p>
 <p>Sometimes using the <code>$inject</code> annotation style is not convenient such as when annotating
 directives.</p>
 
-<p>For example:
+<p>For example:</p>
+
 <pre class="prettyprint linenums">
   someModule.factory('greeter', function($window) {
-    ...;
+    ...
   });
 </pre>
 
-<p>Results in code bloat due to the need of temporary variable:
+<p>Results in code bloat due to needing a temporary variable:</p>
+
 <pre class="prettyprint linenums">
   var greeterFactory = function(renamed$window) {
-    ...;
+    ...
   };
   
   greeterFactory.$inject = ['$window'];
@@ -168,10 +171,11 @@ directives.</p>
   someModule.factory('greeter', greeterFactory);
 </pre>
 
-<p>For this reason the third annotation style is provided as well.
+<p>For this reason the third annotation style is provided as well.</p>
+
 <pre class="prettyprint linenums">
   someModule.factory('greeter', ['$window', function(renamed$window) {
-    ...;
+    ...
   }]);
 </pre>
 

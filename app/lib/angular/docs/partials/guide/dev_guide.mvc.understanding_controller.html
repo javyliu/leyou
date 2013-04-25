@@ -38,8 +38,8 @@ your application as follows:</p>
 
 <p>var myApp = angular.module('myApp',[]);</p>
 
-<p>myApp.controller('GreetingCtrl', ['$scope', function(scope) {
-  scope.greeting = 'Hola!';
+<p>myApp.controller('GreetingCtrl', ['$scope', function($scope) {
+  $scope.greeting = 'Hola!';
 }]);</p>
 
 <p>Note also that we use the array notation to explicitly specify the dependency

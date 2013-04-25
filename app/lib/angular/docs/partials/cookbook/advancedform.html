@@ -5,10 +5,10 @@
 detection, and preventing invalid form submission.</p>
 
 <h3>Source</h3>
-<div source-edit="" source-edit-deps="angular.js script.js" source-edit-html="index.html-13" source-edit-css="" source-edit-js="script.js-12" source-edit-unit="" source-edit-scenario="scenario.js-14"></div>
+<div source-edit="" source-edit-deps="angular.js script.js" source-edit-html="index.html-15" source-edit-css="" source-edit-js="script.js-14" source-edit-unit="" source-edit-scenario="scenario.js-16"></div>
 <div class="tabbable"><div class="tab-pane" title="index.html">
-<pre class="prettyprint linenums" ng-set-text="index.html-13" ng-html-wrap=" angular.js script.js"></pre>
-<script type="text/ng-template" id="index.html-13">
+<pre class="prettyprint linenums" ng-set-text="index.html-15" ng-html-wrap=" angular.js script.js"></pre>
+<script type="text/ng-template" id="index.html-15">
    
    <div ng-controller="UserForm">
 
@@ -48,8 +48,8 @@ detection, and preventing invalid form submission.</p>
 </script>
 </div>
 <div class="tab-pane" title="script.js">
-<pre class="prettyprint linenums" ng-set-text="script.js-12"></pre>
-<script type="text/ng-template" id="script.js-12">
+<pre class="prettyprint linenums" ng-set-text="script.js-14"></pre>
+<script type="text/ng-template" id="script.js-14">
    function UserForm($scope) {
      var master = {
        name: 'John Smith',
@@ -102,8 +102,8 @@ detection, and preventing invalid form submission.</p>
    </script>
 </div>
 <div class="tab-pane" title="End to end test">
-<pre class="prettyprint linenums" ng-set-text="scenario.js-14"></pre>
-<script type="text/ng-template" id="scenario.js-14">
+<pre class="prettyprint linenums" ng-set-text="scenario.js-16"></pre>
+<script type="text/ng-template" id="scenario.js-16">
   it('should enable save button', function() {
     expect(element(':button:contains(Save)').attr('disabled')).toBeTruthy();
     input('form.name').enter('');
@@ -124,7 +124,7 @@ detection, and preventing invalid form submission.</p>
 </script>
 </div>
 </div><h3>Demo</h3>
-<div class="well doc-example-live animator-container" ng-embed-app="" ng-set-html="index.html-13" ng-eval-javascript="script.js-12"></div>
+<div class="well doc-example-live animator-container" ng-embed-app="" ng-set-html="index.html-15" ng-eval-javascript="script.js-14"></div>
 
 <h2>Things to notice</h2>
 

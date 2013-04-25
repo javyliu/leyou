@@ -36,10 +36,10 @@ is used for sorting, but when two items are equivalent, the next predicate is us
 </div>
 <h2 id="Example">Example</h2>
 <div class="example"><h4>Source</h4>
-<div source-edit="" source-edit-deps="angular.js script.js" source-edit-html="index.html-217" source-edit-css="" source-edit-js="script.js-216" source-edit-unit="" source-edit-scenario="scenario.js-218"></div>
+<div source-edit="" source-edit-deps="angular.js script.js" source-edit-html="index.html-218" source-edit-css="" source-edit-js="script.js-217" source-edit-unit="" source-edit-scenario="scenario.js-219"></div>
 <div class="tabbable"><div class="tab-pane" title="index.html">
-<pre class="prettyprint linenums" ng-set-text="index.html-217" ng-html-wrap=" angular.js script.js"></pre>
-<script type="text/ng-template" id="index.html-217">
+<pre class="prettyprint linenums" ng-set-text="index.html-218" ng-html-wrap=" angular.js script.js"></pre>
+<script type="text/ng-template" id="index.html-218">
   
   <div ng-controller="Ctrl">
     <pre>Sorting predicate = {{predicate}}; reverse = {{reverse}}</pre>
@@ -62,8 +62,8 @@ is used for sorting, but when two items are equivalent, the next predicate is us
 </script>
 </div>
 <div class="tab-pane" title="script.js">
-<pre class="prettyprint linenums" ng-set-text="script.js-216"></pre>
-<script type="text/ng-template" id="script.js-216">
+<pre class="prettyprint linenums" ng-set-text="script.js-217"></pre>
+<script type="text/ng-template" id="script.js-217">
     function Ctrl($scope) {
       $scope.friends =
           [{name:'John', phone:'555-1212', age:10},
@@ -76,8 +76,8 @@ is used for sorting, but when two items are equivalent, the next predicate is us
   </script>
 </div>
 <div class="tab-pane" title="End to end test">
-<pre class="prettyprint linenums" ng-set-text="scenario.js-218"></pre>
-<script type="text/ng-template" id="scenario.js-218">
+<pre class="prettyprint linenums" ng-set-text="scenario.js-219"></pre>
+<script type="text/ng-template" id="scenario.js-219">
   it('should be reverse ordered by aged', function() {
     expect(binding('predicate')).toBe('-age');
     expect(repeater('table.friend', 'friend in friends').column('friend.age')).
@@ -102,5 +102,5 @@ is used for sorting, but when two items are equivalent, the next predicate is us
 </script>
 </div>
 </div><h4>Demo</h4>
-<div class="well doc-example-live animator-container" ng-embed-app="" ng-set-html="index.html-217" ng-eval-javascript="script.js-216"></div></div>
+<div class="well doc-example-live animator-container" ng-embed-app="" ng-set-html="index.html-218" ng-eval-javascript="script.js-217"></div></div>
 </div>

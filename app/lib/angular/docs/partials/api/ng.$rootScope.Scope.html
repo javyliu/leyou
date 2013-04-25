@@ -144,7 +144,7 @@ Application code can register a <code>$destroy</code> event handler that will gi
 perform any necessary cleanup.</p></div>
 </li>
 <li><h3 id="$digest">$digest()</h3>
-<div class="$digest"><p>Process all of the <a href="api/ng.$rootScope.Scope#$watch"><code>watchers</code></a> of the current scope and its children.
+<div class="$digest"><p>Processes all of the <a href="api/ng.$rootScope.Scope#$watch"><code>watchers</code></a> of the current scope and its children.
 Because a <a href="api/ng.$rootScope.Scope#$watch"><code>watcher</code></a>'s listener can change the model, the
 <code>$digest()</code> keeps calling the <a href="api/ng.$rootScope.Scope#$watch"><code>watchers</code></a> until no more listeners are
 firing. This means that it is possible to get into an infinite loop. This function will throw
@@ -194,7 +194,7 @@ registered <a href="api/ng.$rootScope.Scope#$on"><code>ng.$rootScope.Scope#$on</
 Afterwards, the event traverses upwards toward the root scope and calls all registered
 listeners along the way. The event will stop propagating if one of the listeners cancels it.</p>
 
-<p>Any exception emmited from the <a href="api/ng.$rootScope.Scope#$on"><code>listeners</code></a> will be passed
+<p>Any exception emitted from the <a href="api/ng.$rootScope.Scope#$on"><code>listeners</code></a> will be passed
 onto the <a href="api/ng.$exceptionHandler"><code>$exceptionHandler</code></a> service.</p><h4 id="Parameters">Parameters</h4>
 <ul class="parameters"><li><code ng:non-bindable="">name – {string} – </code>
 <p>Event name to emit.</p></li>

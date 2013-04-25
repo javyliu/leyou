@@ -30,10 +30,10 @@ The <code>ngHref</code> directive solves this problem.</p>
 <h2 id="Example">Example</h2>
 <div class="example"><p>This example uses <code>link</code> variable inside <code>href</code> attribute:
 <h4>Source</h4>
-<div source-edit="" source-edit-deps="angular.js" source-edit-html="index.html-180" source-edit-css="" source-edit-js="" source-edit-unit="" source-edit-scenario="scenario.js-181"></div>
+<div source-edit="" source-edit-deps="angular.js" source-edit-html="index.html-181" source-edit-css="" source-edit-js="" source-edit-unit="" source-edit-scenario="scenario.js-182"></div>
 <div class="tabbable"><div class="tab-pane" title="index.html">
-<pre class="prettyprint linenums" ng-set-text="index.html-180" ng-html-wrap=" angular.js"></pre>
-<script type="text/ng-template" id="index.html-180">
+<pre class="prettyprint linenums" ng-set-text="index.html-181" ng-html-wrap=" angular.js"></pre>
+<script type="text/ng-template" id="index.html-181">
     <input ng-model="value" /><br />
     <a id="link-1" href ng-click="value = 1">link 1</a> (link, don't reload)<br />
     <a id="link-2" href="" ng-click="value = 2">link 2</a> (link, don't reload)<br />
@@ -44,8 +44,8 @@ The <code>ngHref</code> directive solves this problem.</p>
   </script>
 </div>
 <div class="tab-pane" title="End to end test">
-<pre class="prettyprint linenums" ng-set-text="scenario.js-181"></pre>
-<script type="text/ng-template" id="scenario.js-181">
+<pre class="prettyprint linenums" ng-set-text="scenario.js-182"></pre>
+<script type="text/ng-template" id="scenario.js-182">
     it('should execute ng-click but not reload when href without value', function() {
       element('#link-1').click();
       expect(input('value').val()).toEqual('1');
@@ -87,5 +87,5 @@ The <code>ngHref</code> directive solves this problem.</p>
   </script>
 </div>
 </div><h4>Demo</h4>
-<div class="well doc-example-live animator-container" ng-embed-app="" ng-set-html="index.html-180" ng-eval-javascript=""></div></div>
+<div class="well doc-example-live animator-container" ng-embed-app="" ng-set-html="index.html-181" ng-eval-javascript=""></div></div>
 </div>

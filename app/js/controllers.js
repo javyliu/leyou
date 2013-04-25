@@ -2,6 +2,12 @@
 var jingping = ["$scope", "common", function($scope, common) {
 	$scope.title = "乐游互动中心";
 	$scope.menu = common.menu;
+  //window.applicationCache.update();
+  //alert(window.applicationCache.status);
+  //if(window.applicationCache.status == 4){
+  //  window.applicationCache.swapCache();
+  //  window.location.reload();
+  //}
 	var games = common.games;
 	//$scope.detail = function(game_name,package_name,game_id){
 	//PipGameBoxNew.v_openDetail(game_name,package_name,game_id);

@@ -160,7 +160,7 @@ able to quickly stamp out new <code>li</code>s for every <code>action</code> in 
 to save a clean copy of the <code>li</code> element for cloning purposes and as new <code>action</code>s are inserted,
 the template <code>li</code> element needs to be cloned and inserted into <code>ul</code>. But cloning the <code>li</code> element
 is not enough. It also needs to compile the <code>li</code> so that its directives such as
-<code>{{action.descriptions}}</code> evaluate against the right <a href="api/ng.$rootScope.Scope"><code>scope</code></a>. A naive method would be to simply insert a copy of the <code>li</code> element and then compile it.
+<code>{{action.description}}</code> evaluate against the right <a href="api/ng.$rootScope.Scope"><code>scope</code></a>. A naive method would be to simply insert a copy of the <code>li</code> element and then compile it.
 But compiling on every <code>li</code> element clone would be slow, since the compilation requires that we
 traverse the DOM tree and look for directives and execute them. If we put the compilation inside a
 repeater which needs to unroll 100 items we would quickly run into performance problems.</p>
@@ -259,7 +259,12 @@ as to copy content into the DOM from the scope.</p></li>
 
 <h2>Writing directives (long version)</h2>
 
-<p>An example skeleton of the directive is shown here, for the complete list see below.</p>
+<p>There are different ways to declare a directive. The difference resides in the return 
+value of the factory function. You can either return a Directive Definition Object
+(see below) that defines the directive properties, or just the postLink function
+of such an object (all other properties will have the default values).</p>
+
+<p>Here's an example directive declared with a Directive Definition Object:</p>
 
 <pre class="prettyprint linenums">
   var myModule = angular.module(...);
@@ -285,12 +290,11 @@ as to copy content into the DOM from the scope.</p></li>
   });
 </pre>
 
-<p>In most cases you will not need such fine control and so the above can be simplified. All of the
-different parts of this skeleton are explained in following sections. In this section we are
-interested only in some of this skeleton.</p>
+<p>In most cases you will not need such fine control and so the above can be simplified. You can still
+return a Directive Definition Object, but only setting the 'compile' function property of the Object,
+and rely on the default values for other properties. </p>
 
-<p>The first step in simplifying the code is to rely on the default values. Therefore the above can be
-simplified as:</p>
+<p>Therefore the above can be simplified as:</p>
 
 <pre class="prettyprint linenums">
   var myModule = angular.module(...);
@@ -305,8 +309,10 @@ simplified as:</p>
   });
 </pre>
 
-<p>Most directives concern themselves only with instances, not with template transformations, allowing
-further simplification:</p>
+<p>Finally, most directives concern themselves only with instances, not with template transformations, allowing
+further simplification.</p>
+
+<p>Here we only define the postLink function:</p>
 
 <pre class="prettyprint linenums">
   var myModule = angular.module(...);

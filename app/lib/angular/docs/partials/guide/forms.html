@@ -108,10 +108,10 @@ This ensures that the user is not distracted with an error until after interacti
 <pre class="prettyprint linenums" ng-set-text="script.js-24"></pre>
 <script type="text/ng-template" id="script.js-24">
   function Controller($scope) {
-    $scope.master= {};
+    $scope.master = {};
 
     $scope.update = function(user) {
-      $scope.master= angular.copy(user);
+      $scope.master = angular.copy(user);
     };
 
     $scope.reset = function() {
@@ -127,7 +127,7 @@ This ensures that the user is not distracted with an error until after interacti
 
 <h2>Binding to form and control state</h2>
 
-<p>A form is in instance of <a href="api/ng.directive:form.FormController"><code>FormController</code></a>.
+<p>A form is an instance of <a href="api/ng.directive:form.FormController"><code>FormController</code></a>.
 The form instance can optionally be published into the scope using the <code>name</code> attribute.
 Similarly control is an instance of <a href="api/ng.directive:ngModel.NgModelController"><code>NgModelController</code></a>.
 The control instance can similarly be published into the form instance using the <code>name</code> attribute.

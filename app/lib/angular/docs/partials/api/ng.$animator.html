@@ -3,7 +3,7 @@
 )</span>
 </h1>
 <div><a href="http://github.com/angular/angular.js/edit/master/src/ng/animator.js" class="improve-docs btn btn-primary">Improve this doc</a><h2 id="Description">Description</h2>
-<div class="description"><p>The $animator service provides the DOM manipulation API which is decorated with animations.</p></div>
+<div class="description"><p>The $animator.create service provides the DOM manipulation API which is decorated with animations.</p></div>
 <h2 id="Usage">Usage</h2>
 <div class="usage"><pre class="prettyprint linenums">$animator(scope, attr);</pre>
 <h3 id="Parameters">Parameters</h3>
@@ -18,7 +18,17 @@ passed into the linking function of the directive using the <code>$animator</cod
 – <p>the animator object which contains the enter, leave, move, show, hide and animate methods.</p></div>
 </div>
 <div class="member method"><h2 id="Methods">Methods</h2>
-<ul class="methods"><li><h3 id="enter">enter(element, parent, after)</h3>
+<ul class="methods"><li><h3 id="enabled">enabled(If)</h3>
+<div class="enabled"><p>Globally enables/disables animations.</p><h4 id="Parameters">Parameters</h4>
+<ul class="parameters"><li><code ng:non-bindable="">If<i>(optional)</i> – {Boolean=} – </code>
+<p>provided then set the animation on or off.</p></li>
+</ul>
+<h4 id="Returns">Returns</h4>
+<div class="returns"><code ng:non-bindable="">{Boolean}</code>
+– <p>Current animation state.</p></div>
+</div>
+</li>
+<li><h3 id="enter">enter(element, parent, after)</h3>
 <div class="enter"><p>Injects the element object into the DOM (inside of the parent element) and then runs the enter animation.</p><h4 id="Parameters">Parameters</h4>
 <ul class="parameters"><li><code ng:non-bindable="">element – {jQuery/jqLite element} – </code>
 <p>the element that will be the focus of the enter animation</p></li>

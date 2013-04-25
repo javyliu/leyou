@@ -19,17 +19,17 @@ To solve this problem, we introduce the <code>ngReadonly</code> directive.</p></
 </div>
 <h2 id="Example">Example</h2>
 <div class="example"><h4>Source</h4>
-<div source-edit="" source-edit-deps="angular.js" source-edit-html="index.html-188" source-edit-css="" source-edit-js="" source-edit-unit="" source-edit-scenario="scenario.js-189"></div>
+<div source-edit="" source-edit-deps="angular.js" source-edit-html="index.html-189" source-edit-css="" source-edit-js="" source-edit-unit="" source-edit-scenario="scenario.js-190"></div>
 <div class="tabbable"><div class="tab-pane" title="index.html">
-<pre class="prettyprint linenums" ng-set-text="index.html-188" ng-html-wrap=" angular.js"></pre>
-<script type="text/ng-template" id="index.html-188">
+<pre class="prettyprint linenums" ng-set-text="index.html-189" ng-html-wrap=" angular.js"></pre>
+<script type="text/ng-template" id="index.html-189">
   Check me to make text readonly: <input type="checkbox" ng-model="checked"><br/>
   <input type="text" ng-readonly="checked" value="I'm Angular"/>
 </script>
 </div>
 <div class="tab-pane" title="End to end test">
-<pre class="prettyprint linenums" ng-set-text="scenario.js-189"></pre>
-<script type="text/ng-template" id="scenario.js-189">
+<pre class="prettyprint linenums" ng-set-text="scenario.js-190"></pre>
+<script type="text/ng-template" id="scenario.js-190">
   it('should toggle readonly attr', function() {
     expect(element('.doc-example-live :text').prop('readonly')).toBeFalsy();
     input('checked').check();
@@ -38,5 +38,5 @@ To solve this problem, we introduce the <code>ngReadonly</code> directive.</p></
 </script>
 </div>
 </div><h4>Demo</h4>
-<div class="well doc-example-live animator-container" ng-embed-app="" ng-set-html="index.html-188" ng-eval-javascript=""></div></div>
+<div class="well doc-example-live animator-container" ng-embed-app="" ng-set-html="index.html-189" ng-eval-javascript=""></div></div>
 </div>

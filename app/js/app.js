@@ -1,4 +1,4 @@
-angular.module('leyou', ['leyou.service', 'ui.bootstrap']).
+angular.module('leyou', ['leyou.service', 'ui.bootstrap','ngMobile']).
 config(['$routeProvider', function($routeProvider) {
 	$routeProvider.when('/huodong', {
 		templateUrl: 'partials/huodong.html',

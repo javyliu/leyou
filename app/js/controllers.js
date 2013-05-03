@@ -69,28 +69,9 @@ var games = ["$scope", "common", "$routeParams", "$filter", "plugins", function(
   }
   console.log($scope);
 
-  game.install = function(scope){
-      var _this = this;
-      var path = "/mnt/sdcard/download/" + _this.package_name + ".apk"
-        console.log("----------------install package");
-			cordova.exec(function(res) {
-				//安装完成
-        console.log(res);
-        _this.display_text = "打开游戏";
-        _this.game_state = "1";
-        _this.complete=0;
-				console.log("-------"+_this+"---------------install ok");
-			}, function(res){
-        alert(res);
-        _this.game_state="0";
-        _this.complete=0;
-        _this.display_text="重新下载";
-      }, "Tools", "install_package", [path]);
-      $scope.$apply();
-  }
 
   //检测程序，设备准备好后执行，用于检测是否安装了程序,应做成服务(need_update)
-  var detect = function() {
+  var detect = function(game) {
     //如果正在下载，则不做检测
     if(game.game_state == "4"){
       return;
@@ -112,6 +93,7 @@ var games = ["$scope", "common", "$routeParams", "$filter", "plugins", function(
         //如果从其它页面返回
         game.display_text = "下载中..."
       }else{
+        game.game_state = "0";
         game.display_text = "免费下载";
       }
     },
@@ -124,13 +106,18 @@ var games = ["$scope", "common", "$routeParams", "$filter", "plugins", function(
   //    game.fileTransfer && game.fileTransfer.abort();
   //  }
   //}, false);
+  var on_resume = function(){
+    //仍在当前页面，则进行检测
+    document.removeEventListener("resume", this.resume, false);
+    if(this == game){
+      detect(this);
+      this.resume=null;
+      $scope.$apply();
+    }
+  }
 	console.log(game.package_name);
 	function on_device_ready() {
-    detect();
-   // var on_resume = function(){
-   //   detect();
-   //   $scope.$apply();
-   // }
+    detect(game);
 		//document.addEventListener("resume", on_resume, false);
 
 	}
@@ -159,7 +146,21 @@ var games = ["$scope", "common", "$routeParams", "$filter", "plugins", function(
       break;
     case "3":
       //can install the package
-      game.install();
+      //game.install();
+        plugins.install(game,function(res){
+          console.log("绑定事件");
+          game.resume = function(res){
+            console.log("执行resume事件");
+            on_resume.call(game);
+          }
+          document.addEventListener("resume", game.resume, false);
+        }, function(res){
+            alert(res);
+            game.game_state="0";
+            game.complete=0;
+            game.display_text="重新下载";
+          }
+        );
 
       break;
     case "4":
@@ -170,6 +171,7 @@ var games = ["$scope", "common", "$routeParams", "$filter", "plugins", function(
       //download(game,$scope);
       $scope.game.display_text = "下载中...";
       $scope.game.game_state = "4";
+      game.download_success =
       plugins.download(game,download_progress,download_success,download_error)
 			break;
 		}
@@ -180,7 +182,21 @@ var games = ["$scope", "common", "$routeParams", "$filter", "plugins", function(
         //game.start_download = false;
         $scope.game.display_text = "点击安装";
         $scope.game.game_state = "3";
-        $scope.game.install();
+        console.log($scope.game);
+        plugins.install($scope.game,function(res){
+          console.log("绑定事件");
+          $scope.game.resume = function(res){
+            console.log("执行resume事件");
+            on_resume.call($scope.game);
+          }
+          document.addEventListener("resume", $scope.game.resume, false);
+        },function(res){
+            alert(res);
+            $scope.game.game_state="0";
+            $scope.game.complete=0;
+            $scope.game.display_text="重新下载";
+          }
+        );
       }
   var download_error=function(error) {
         $scope.game.display_text = "重新下载"

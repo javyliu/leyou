@@ -391,31 +391,12 @@ angular.module('leyou.service', []).value('common', {
 
 		fileTransfer.download(uri, filePath, success,fail,false, {});
 	}
-  //actions.download = function(url,package_name,$scope){
-  //  var fileTransfer = new FileTransfer();
-  //  var uri = encodeURI(url);
-  //  var filePath = "/mnt/sdcard/download/"+package_name+".apk";
-  //  //$scope.start_download = true;
-  //  fileTransfer.onprogress = function(progressEvent) {
-  //    if (progressEvent.lengthComputable) {
-  //      $scope.complete = parseInt(progressEvent.loaded*100/progressEvent.total);
-  //    } else {
-  //      alert("不支持状态显示");
-  //      //loadingStatus.increment();
-  //    }
-  //  };
+  actions.install = function(app,success,fail){
+      var path = "/mnt/sdcard/download/" + app.package_name + ".apk"
+      console.log("----------------install package");
+			cordova.exec(success,fail,"Tools", "install_package", [path]);
+  }
 
-  //  fileTransfer.download( uri, filePath,
-  //      function(entry) {
-  //        cordova.exec(null, null, "Tools", "install_package", [entry.fullPath]);
-  //        $scope.start_download = false;
-  //      },
-  //      function(error) {
-  //        alert("下载失败，请重新再试!" + error.code);
-  //      },
-  //      false, { }
-  //      );
-  //}
 	return actions;
 
 }
